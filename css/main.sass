@@ -1,0 +1,336 @@
+//fonts
+@font-face
+  font-family: "HelveticaNeueCyr"
+  src: url("../fonts/HelveticaNeueCyr-Light.otf") format("opentype")
+  font-weight: 300
+
+@font-face
+  font-family: "HelveticaNeueCyr"
+  src: url("../fonts/HelveticaNeueCyr-Black.otf") format("opentype")
+  font-weight: 800
+
+@font-face
+  font-family: "NimbusSanTcon"
+  src: url("../fonts/NIMBSTB.ttf") format("truetype")
+  font-weight: 700
+
+//common styles
+*
+  padding: 0
+  margin: 0
+  box-sizing: border-box
+
+html
+  font-size: 10px
+
+body
+  font-family: "HelveticaNeueCyr", sans-serif
+
+button
+  background-color: transparent
+  border: none
+  outline: none
+
+a
+  color: inherit
+  text-decoration: none
+
+ul, li
+  list-style: none
+
+.container
+  max-width: 970px
+  margin: 0 auto
+
+//vars
+//Font Color
+$lightColor: #f1f2f5
+$darkColor: #000000
+
+//Link
+$linkHoverBg: #e46107
+$linkColor: #ffffff
+
+//mixins
+@mixin btn($clrBorder, $clrHoverBorder, $clr, $clrHover)
+  display: inline-block
+  font-family: "NimbusSanTcon", sans-serif
+  font-size: 1.9rem
+  border: 2px solid $clrBorder
+  border-radius: 5px
+  padding: 2rem 4rem
+  color: $clr
+  text-transform: uppercase
+  transition: all 0.3s
+  &:hover, &:focus, &:active
+    color: $clrHover
+    border-color: $clrHoverBorder
+
+//===================HEADER==================//
+.header
+  position: absolute
+  padding-top: 15px
+  z-index: 3
+  width: 100%
+  .btn__show-menu
+    position: relative
+    z-index: 3
+    display: none
+    span
+      display: block
+      width: 30px
+      height: 3px
+      margin: 3px 0
+      background-color: #ffffff
+      transition: all .3s
+    &.show
+      span:nth-child(1)
+        transform: rotate(45deg) translate(3px,6px)
+      span:nth-child(2)
+        transform: scale(0)
+      span:nth-child(3)
+        transform: rotate(-45deg) translate(2px,-5px)
+  .logo__wrap
+    background-image: url("../img/logo-background.png")
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center top
+    padding: 30px
+    text-align: center
+    position: relative
+    z-index: 3
+    img
+      width: 20%
+  .header__nav
+    position: relative
+    z-index: 1
+    margin-top: -17px
+    padding-bottom: 50px
+    border-radius: 36% 36% 0 0 / 100% 100% 0 0
+    overflow: hidden
+    &::before
+      content: ""
+      display: block
+      width: 300px
+      height: 1px
+      border-radius: 50%
+      position: absolute
+      z-index: -1
+      top: 0
+      left: 35%
+      box-shadow: 0 0 70px 60px rgba(#194c0d, 1)
+    ul
+      background-repeat: no-repeat
+      background-size: 100%
+      display: flex
+      justify-content: center
+      li
+        margin: 0 3px
+        a
+          display: block
+          padding: 26px 17px
+          background-color: transparent
+          border-radius: 0 0 5px 5px
+          transition: background-color 0.3s
+          font-size: 1.9rem
+          font-family: "NimbusSanTcon", sans-serif
+          color: $linkColor
+          text-transform: uppercase
+          &:hover, &:focus, &:active
+            background-color: $linkHoverBg
+
+
+//===================HOME==================//
+#home
+  padding-top: 275px
+  padding-bottom: 235px
+  background-image: url("../img/home-background.jpg")
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: center top
+  text-align: center
+  border-bottom: 4px solid $linkHoverBg
+  h1
+    font-size: 6.8rem
+    font-weight: 800
+    color: $linkColor
+    line-height: 7rem
+    text-align: center
+    max-width: 800px
+    margin: auto
+    padding-bottom: 20px
+    word-wrap: break-word
+    text-shadow: 0 0 6px rgba(31, 88, 0, 0.75)
+  .home__about-company
+      background-color: rgba(#26311c, 0.7)
+      border-radius: 4px
+      padding: 27px 44px 34px
+      color: $linkColor
+      h2
+        font-size: 3.4rem
+        font-weight: 300
+        line-height: 4rem
+        padding-bottom: 20px
+      p
+        font-size: 14px
+        line-height: 2.5rem
+
+
+//===================OUR PRODUCT==================//
+#our-product
+  background-color: #26311c
+  .our-product__items
+    position: relative
+    top: -110px
+    display: flex
+    justify-content: center
+    flex-wrap: wrap
+  .our-product__item
+    flex: 0 0 30%
+    text-align: center
+    padding: 0 20px 27px
+    .item__img
+      width: 205px
+      height: 205px
+      border-radius: 50%
+      border: 8px solid #ffffff
+      overflow: hidden
+      margin: auto
+      img
+        width: 101%
+    h3
+      font-size: 3.4rem
+      color: $linkColor
+      font-weight: 300
+      line-height: 4rem
+      padding: 25px 10px
+    .btn
+      @include btn(#a1ad97, #8dc705, $linkColor, #8dc705)
+
+//===================COMMUNITY==================//
+#community
+  background-image: url("../img/communityBenefits-background.jpg")
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+  border-bottom: 4px solid #7da83c
+  .community__content
+    max-width: 465px
+    padding: 85px 0 95px
+  h2
+    font-size: 3.4rem
+    font-weight: 300
+    color: $darkColor
+    padding-bottom: 10px
+    span
+      display: block
+      font-size: 5.4rem
+      font-weight: 800
+      color: #48890a
+  p
+    font-size: 14px
+    color: $darkColor
+    line-height: 2.4rem
+    padding-bottom: 25px
+  .btn
+    @include btn(#48890a, #8dc705, #48890a, #8dc705)
+
+//===================FOOTER==================//
+.footer
+  .footer__nav
+    ul
+      display: flex
+      justify-content: center
+      li
+        a
+          display: block
+          padding: 25px 20px
+          font-family: "NimbusSanTcon", sans-serif
+          text-transform: uppercase
+          color: #7b7b7b
+          font-size: 1.9rem
+          transition: color 0.3s
+          &:hover, &:focus, &:active
+            color: #8dc705
+  .footer__info
+    background-color: #e4e4e4
+    padding: 27px 0 30px
+    color: #919191
+    font-size: 12px
+    .footer__info-wrap
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+
+@media screen and (max-width: 991px)
+  .container
+    padding: 0 15px
+  .header
+    position: static
+    background: #48890a
+    padding: 15px 0
+    &.show
+      position: fixed
+      width: 100%
+    .header__wrap
+      display: flex
+      justify-content: space-between
+      .btn__show-menu
+        display: block
+      .logo__wrap
+        background: none
+        padding: 0
+        img
+          width: 100px
+      .header__nav
+        padding-bottom: 0
+        margin-top: 0
+        transform: translateX(-100%)
+        position: fixed
+        left: 0
+        height: 100%
+        width: 100%
+        background: #48890a
+        border-radius: 0
+        transition: all 0.3s
+        &.show
+          transform: translateX(0)
+        &::before
+          display: none
+        ul
+          flex-direction: column
+          height: 100%
+          text-align: center
+          li
+            margin: 5px 10px
+            a
+              padding: 20px
+              border-radius: 0
+              font-size: 2.8rem
+  #home
+    padding-top: 50px
+@media screen and (max-width: 620px)
+  .footer
+    .footer__nav ul
+      padding: 10px 0
+      flex-wrap: wrap
+      justify-content: flex-start
+      li
+        flex-basis: 50%
+        a
+          padding: 5px 0
+    .footer__info .footer__info-wrap
+      p
+        flex-basis: 100%
+        text-align: center
+        &:nth-child(1)
+          padding-bottom: 10px
+
+@media screen and (max-width: 475px)
+  html
+    font-size: 8px
+  #home
+    h1
+      font-size: 5.5rem
+    .home__about-company
+      padding: 27px 20px 34px
